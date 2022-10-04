@@ -15,9 +15,17 @@ namespace EmployeeManagementAppAPI.Repositories
         {
             this.context = context;
         }
+
         public async Task<List<Employee>> GetEmployeesAsync()
         {
            return await context.Employee.Include(nameof(Department)).Include(nameof(Address)).ToListAsync();
+        }
+
+        public async Task<Employee> GetEmployeeAsync(Guid employeeId)
+        {
+            return await context.Employee
+                .Include(nameof(Department)).Include(nameof(Address))
+                .FirstOrDefaultAsync(x => x.Id == employeeId);
         }
 
     }
