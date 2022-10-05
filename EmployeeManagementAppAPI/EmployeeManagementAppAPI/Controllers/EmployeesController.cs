@@ -25,6 +25,7 @@ namespace EmployeeManagementAppAPI.Controllers
         [Route("[controller]")]
         public async Task<IActionResult> GetAllEmployeesAsync()
         {
+            //fetching all employees
             var employees = await employeeRepository.GetEmployeesAsync();
 
             return Ok(mapper.Map<List<Employee>>(employees));
@@ -34,10 +35,8 @@ namespace EmployeeManagementAppAPI.Controllers
         [Route("[controller]/{employeeId:guid}")]
         public async Task<IActionResult> GetEmployeeAsync([FromRoute] Guid employeeId)
         {
-            //Fetch Employee Information
+            //fetch employee information
             var employee = await employeeRepository.GetEmployeeAsync(employeeId);
-
-            //Return Employee
             if (employee == null)
             {
                 return NotFound();
@@ -64,5 +63,19 @@ namespace EmployeeManagementAppAPI.Controllers
             return NotFound();
         }
 
+        [HttpDelete]
+        [Route("[controller]/{employeeId:guid}")]
+        public async Task<IActionResult> DeleteEmployeeAsync([FromRoute] Guid employeeId)
+        {
+            if (await employeeRepository.Exists(employeeId))
+            {
+                //delete employee
+                var employee = await employeeRepository.DeleteEmployee(employeeId);
+                return Ok(mapper.Map<Employee>(employee));
+            }
+
+            return NotFound();
+        }
+            
     }
 }

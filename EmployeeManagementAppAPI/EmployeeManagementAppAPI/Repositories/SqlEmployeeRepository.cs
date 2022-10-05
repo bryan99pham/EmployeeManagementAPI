@@ -18,7 +18,7 @@ namespace EmployeeManagementAppAPI.Repositories
 
         public async Task<List<Employee>> GetEmployeesAsync()
         {
-           return await context.Employee.Include(nameof(Department)).Include(nameof(Address)).ToListAsync();
+            return await context.Employee.Include(nameof(Department)).Include(nameof(Address)).ToListAsync();
         }
 
         public async Task<Employee> GetEmployeeAsync(Guid employeeId)
@@ -35,13 +35,13 @@ namespace EmployeeManagementAppAPI.Repositories
 
         public async Task<bool> Exists(Guid employeeId)
         {
-           return await context.Employee.AnyAsync(x => x.Id == employeeId);
+            return await context.Employee.AnyAsync(x => x.Id == employeeId);
         }
 
         public async Task<Employee> UpdateEmployee(Guid employeeId, Employee newEmployeeInfo)
         {
             var existingEmployee = await GetEmployeeAsync(employeeId);
-            if(existingEmployee != null)
+            if (existingEmployee != null)
             {
                 existingEmployee.FirstName = newEmployeeInfo.FirstName;
                 existingEmployee.LastName = newEmployeeInfo.LastName;
@@ -54,6 +54,20 @@ namespace EmployeeManagementAppAPI.Repositories
 
                 await context.SaveChangesAsync();
                 return existingEmployee;
+            }
+            return null;
+        }
+
+        public async Task<Employee> DeleteEmployee(Guid employeeId)
+        {
+            var employee = await GetEmployeeAsync(employeeId);
+
+            if(employee != null)
+            {
+                //deleting employee
+                context.Employee.Remove(employee);
+                await context.SaveChangesAsync();
+                return employee;
             }
             return null;
         }

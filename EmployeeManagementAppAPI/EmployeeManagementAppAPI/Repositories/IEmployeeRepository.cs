@@ -12,5 +12,6 @@ namespace EmployeeManagementAppAPI.Repositories
         Task<List<Department>>GetDepartmentsAsync();
         Task<bool>Exists(Guid employeeId);
         Task<Employee> UpdateEmployee(Guid employeeId, Employee newEmployeeInfo);
+        Task<Employee> DeleteEmployee(Guid employeeId);
     }
 }
