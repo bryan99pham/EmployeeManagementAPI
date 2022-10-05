@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using EmployeeManagementAppAPI.DomainModels;
+using EmployeeManagementAppAPI.Profiles.AfterMaps;
 using DataModels = EmployeeManagementAppAPI.DataModels;
 
 namespace EmployeeManagementAppAPI.Profiles
@@ -16,6 +17,9 @@ namespace EmployeeManagementAppAPI.Profiles
 
             CreateMap<DataModels.Address, Address>()
                 .ReverseMap();
+
+            CreateMap<UpdateEmployeeRequest, DataModels.Employee>()
+                .AfterMap<UpdateEmployeeRequestAfterMap>();
         }
     }
 }

@@ -28,5 +28,34 @@ namespace EmployeeManagementAppAPI.Repositories
                 .FirstOrDefaultAsync(x => x.Id == employeeId);
         }
 
+        public async Task<List<Department>> GetDepartmentsAsync()
+        {
+            return await context.Department.ToListAsync();
+        }
+
+        public async Task<bool> Exists(Guid employeeId)
+        {
+           return await context.Employee.AnyAsync(x => x.Id == employeeId);
+        }
+
+        public async Task<Employee> UpdateEmployee(Guid employeeId, Employee newEmployeeInfo)
+        {
+            var existingEmployee = await GetEmployeeAsync(employeeId);
+            if(existingEmployee != null)
+            {
+                existingEmployee.FirstName = newEmployeeInfo.FirstName;
+                existingEmployee.LastName = newEmployeeInfo.LastName;
+                existingEmployee.DateOfBirth = newEmployeeInfo.DateOfBirth;
+                existingEmployee.Email = newEmployeeInfo.Email;
+                existingEmployee.Mobile = newEmployeeInfo.Mobile;
+                existingEmployee.DepartmentId = newEmployeeInfo.DepartmentId;
+                existingEmployee.Address.PhysicalAddress = newEmployeeInfo.Address.PhysicalAddress;
+                existingEmployee.Address.PostalAddress = newEmployeeInfo.Address.PostalAddress;
+
+                await context.SaveChangesAsync();
+                return existingEmployee;
+            }
+            return null;
+        }
     }
 }
