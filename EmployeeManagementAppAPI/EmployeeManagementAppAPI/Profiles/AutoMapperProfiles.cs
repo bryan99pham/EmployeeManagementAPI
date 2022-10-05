@@ -20,6 +20,9 @@ namespace EmployeeManagementAppAPI.Profiles
 
             CreateMap<UpdateEmployeeRequest, DataModels.Employee>()
                 .AfterMap<UpdateEmployeeRequestAfterMap>();
+
+            CreateMap<AddEmployeeRequest, DataModels.Employee>()
+                .AfterMap<AddEmployeeRequestAfterMap>();
         }
     }
 }

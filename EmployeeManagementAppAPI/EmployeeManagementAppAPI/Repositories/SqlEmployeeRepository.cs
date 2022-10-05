@@ -71,5 +71,12 @@ namespace EmployeeManagementAppAPI.Repositories
             }
             return null;
         }
+
+        public async Task<Employee> AddEmployee(Employee request)
+        {
+            var employee = await context.Employee.AddAsync(request);
+            await context.SaveChangesAsync();
+            return employee.Entity;
+        }
     }
 }

@@ -32,7 +32,7 @@ namespace EmployeeManagementAppAPI.Controllers
         }
 
         [HttpGet]
-        [Route("[controller]/{employeeId:guid}")]
+        [Route("[controller]/{employeeId:guid}"), ActionName("GetEmployeeAsync")]
         public async Task<IActionResult> GetEmployeeAsync([FromRoute] Guid employeeId)
         {
             //fetch employee information
@@ -77,5 +77,13 @@ namespace EmployeeManagementAppAPI.Controllers
             return NotFound();
         }
             
+        [HttpPost]
+        [Route("[controller]/Add")]
+        public async Task<IActionResult> AddEmployeeAsync([FromBody] AddEmployeeRequest request)
+        {
+            var employee = await employeeRepository.AddEmployee(mapper.Map<DataModels.Employee>(request));
+            return CreatedAtAction(nameof(GetEmployeeAsync), new { employeeId = employee.Id },
+                mapper.Map<Employee>(employee));
+        }
     }
 }
