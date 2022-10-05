@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI.csproj": {}
+    "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI.csproj": {
+    "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI.csproj",
+        "projectUniqueName": "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI.csproj",
         "projectName": "EmployeeManagementAppAPI",
-        "projectPath": "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI.csproj",
-        "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\obj\\",
+        "projectPath": "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI.csproj",
+        "packagesPath": "/Users/Zuri/.nuget/packages/",
+        "outputPath": "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/Zuri/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -47,6 +45,10 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.1, )"
+            },
+            "Microsoft.EntityFrameworkCore.Analyzers": {
+              "target": "Package",
+              "version": "[6.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -81,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.106/RuntimeIdentifierGraph.json"
         }
       }
     }

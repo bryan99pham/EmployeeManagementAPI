@@ -143,7 +143,7 @@
           "lib/netstandard2.1/Microsoft.EntityFrameworkCore.Abstractions.dll": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/5.0.9": {
+      "Microsoft.EntityFrameworkCore.Analyzers/6.0.9": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -1840,17 +1840,17 @@
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/5.0.9": {
-      "sha512": "eyuPLRFjcF7VWH8qy1uUuMrO02W15n9EXAXnYjCTWgH0SDIeZAa2XZXMZ9U3dvOPtvllMBy0obYA5SSbnpaNoQ==",
+    "Microsoft.EntityFrameworkCore.Analyzers/6.0.9": {
+      "sha512": "rNIx4fr7KWH4ypghhI+78PhCUYBHdjVbQ3yKvj/KmUIe4d9pysHXT3lF9TuReVdMDsn5mEx+3Yez8s80J4/JLA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/5.0.9",
+      "path": "microsoft.entityframeworkcore.analyzers/6.0.9",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.5.0.9.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.6.0.9.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
@@ -6041,32 +6041,31 @@
     "net5.0": [
       "AutoMapper >= 10.1.1",
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 8.1.1",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 6.0.9",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.9",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.9",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bryan\\.nuget\\packages\\": {}
+    "/Users/Zuri/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI.csproj",
+      "projectUniqueName": "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI.csproj",
       "projectName": "EmployeeManagementAppAPI",
-      "projectPath": "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI.csproj",
-      "packagesPath": "C:\\Users\\Bryan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\obj\\",
+      "projectPath": "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI.csproj",
+      "packagesPath": "/Users/Zuri/.nuget/packages/",
+      "outputPath": "/Users/Zuri/employee-management-app-api/EmployeeManagementAppAPI/EmployeeManagementAppAPI/EmployeeManagementAppAPI/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Bryan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/Zuri/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -6092,6 +6091,10 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": {
             "target": "Package",
             "version": "[8.1.1, )"
+          },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
+            "target": "Package",
+            "version": "[6.0.9, )"
           },
           "Microsoft.EntityFrameworkCore.SqlServer": {
             "target": "Package",
@@ -6126,7 +6129,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.412\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/x64/sdk/6.0.106/RuntimeIdentifierGraph.json"
       }
     }
   }
