@@ -15,5 +15,6 @@ namespace EmployeeManagementAppAPI.Repositories
         Task<Employee> UpdateEmployee(Guid employeeId, Employee newEmployeeInfo);
         Task<Employee> DeleteEmployee(Guid employeeId);
         Task<Employee> AddEmployee(Employee request);
+        Task<bool> UpdateProfileImage(Guid employeeId, string profileImageUrl);
     }
 }

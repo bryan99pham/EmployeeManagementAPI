@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using EmployeeManagementAppAPI.DomainModels;
 using EmployeeManagementAppAPI.Repositories;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,11 +16,13 @@ namespace EmployeeManagementAppAPI.Controllers
     {
         private readonly IEmployeeRepository employeeRepository;
         private readonly IMapper mapper;
+        private readonly IImageRepository imageRepository;
 
-        public EmployeesController(IEmployeeRepository employeeRepository, IMapper mapper)
+        public EmployeesController(IEmployeeRepository employeeRepository, IMapper mapper, IImageRepository imageRepository)
         {
             this.employeeRepository = employeeRepository;
             this.mapper = mapper;
+            this.imageRepository = imageRepository;
         }
 
         [HttpGet]
@@ -50,12 +54,12 @@ namespace EmployeeManagementAppAPI.Controllers
         [Route("[controller]/{employeeId:guid}")]
         public async Task<IActionResult> UpdateEmployeeAsync([FromRoute] Guid employeeId, [FromBody] UpdateEmployeeRequest newEmployeeInfo)
         {
-            if(await employeeRepository.Exists(employeeId)) 
+            if (await employeeRepository.Exists(employeeId))
             {
                 //update employee info
                 var updatedEmployee = await employeeRepository.UpdateEmployee(employeeId, mapper.Map<DataModels.Employee>(newEmployeeInfo));
 
-                if(updatedEmployee != null)
+                if (updatedEmployee != null)
                 {
                     return Ok(mapper.Map<Employee>(updatedEmployee));
                 }
@@ -76,7 +80,7 @@ namespace EmployeeManagementAppAPI.Controllers
 
             return NotFound();
         }
-            
+
         [HttpPost]
         [Route("[controller]/Add")]
         public async Task<IActionResult> AddEmployeeAsync([FromBody] AddEmployeeRequest request)
@@ -101,6 +105,28 @@ namespace EmployeeManagementAppAPI.Controllers
 
             //convert this data model that we stored in the employee variable to a domain model and return it to the angular application
             return Ok(mapper.Map<Employee>(employee));*/
+        }
+
+        [HttpPost]
+        [Route("[controller]/{employeeId:Guid}/upload-image")]
+        public async Task<IActionResult> UploadImage([FromRoute] Guid employeeId, IFormFile profileImage)
+        {
+            //checking if employee exists
+            if (await employeeRepository.Exists(employeeId))
+            {
+                var fileName = Guid.NewGuid() + Path.GetExtension(profileImage.FileName);
+
+                //upload image to local storage
+                var fileImagePath = await imageRepository.Upload(profileImage, fileName);
+
+                //update profile image path in database
+                if (await employeeRepository.UpdateProfileImage(employeeId, fileImagePath))
+                {
+                    return Ok(fileImagePath);
+                }
+                return StatusCode(StatusCodes.Status500InternalServerError, "Error uploading image");
+            }
+            return NotFound();
         }
     }
 }

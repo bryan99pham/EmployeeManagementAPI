@@ -85,5 +85,18 @@ namespace EmployeeManagementAppAPI.Repositories
             await context.SaveChangesAsync();
             return employee.Entity;
         }
+
+        public async Task<bool> UpdateProfileImage(Guid employeeId, string profileImageUrl)
+        {
+            var employee = await GetSingleEmployeeAsync(employeeId);
+
+            if(employee != null)
+            {
+                employee.ProfileImageURL = profileImageUrl;
+                await context.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
     }
 }
