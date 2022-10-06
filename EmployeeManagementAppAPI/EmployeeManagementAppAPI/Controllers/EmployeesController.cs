@@ -85,5 +85,22 @@ namespace EmployeeManagementAppAPI.Controllers
             return CreatedAtAction(nameof(GetEmployeeAsync), new { employeeId = employee.Id },
                 mapper.Map<Employee>(employee));
         }
+
+        [HttpGet]
+        [Route("[controller]/View/{employeeId:guid}"), ActionName("GetSingleEmployeeAsync")]
+        public async Task<IActionResult> GetSingleEmployeeAsync([FromRoute] Guid employeeId)
+        {
+            var employee = await GetEmployeeAsync(employeeId);
+            return employee;
+            /*//fetch employee information
+            var employee = await employeeRepository.GetSingleEmployeeAsync(employeeId);
+            if (employee == null)
+            {
+                return NotFound();
+            }
+
+            //convert this data model that we stored in the employee variable to a domain model and return it to the angular application
+            return Ok(mapper.Map<Employee>(employee));*/
+        }
     }
 }

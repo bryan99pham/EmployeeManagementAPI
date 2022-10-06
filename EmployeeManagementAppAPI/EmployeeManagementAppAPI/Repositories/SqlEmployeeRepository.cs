@@ -28,6 +28,13 @@ namespace EmployeeManagementAppAPI.Repositories
                 .FirstOrDefaultAsync(x => x.Id == employeeId);
         }
 
+        public async Task<Employee> GetSingleEmployeeAsync(Guid employeeId)
+        {
+            return await context.Employee
+                .Include(nameof(Department)).Include(nameof(Address))
+                .FirstOrDefaultAsync(x => x.Id == employeeId);
+        }
+
         public async Task<List<Department>> GetDepartmentsAsync()
         {
             return await context.Department.ToListAsync();

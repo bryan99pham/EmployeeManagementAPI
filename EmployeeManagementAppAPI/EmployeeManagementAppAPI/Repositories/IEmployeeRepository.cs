@@ -9,6 +9,7 @@ namespace EmployeeManagementAppAPI.Repositories
     {
         Task<List<Employee>> GetEmployeesAsync();
         Task<Employee> GetEmployeeAsync(Guid employeeId);
+        Task<Employee> GetSingleEmployeeAsync(Guid employeeId);
         Task<List<Department>>GetDepartmentsAsync();
         Task<bool>Exists(Guid employeeId);
         Task<Employee> UpdateEmployee(Guid employeeId, Employee newEmployeeInfo);
