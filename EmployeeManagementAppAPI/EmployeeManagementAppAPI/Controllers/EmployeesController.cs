@@ -111,21 +111,42 @@ namespace EmployeeManagementAppAPI.Controllers
         [Route("[controller]/{employeeId:Guid}/upload-image")]
         public async Task<IActionResult> UploadImage([FromRoute] Guid employeeId, IFormFile profileImage)
         {
-            //checking if employee exists
-            if (await employeeRepository.Exists(employeeId))
+            //allowing these image formats
+            var validExtensions = new List<string>
             {
-                var fileName = Guid.NewGuid() + Path.GetExtension(profileImage.FileName);
+                "jpeg",
+                "png",
+                "jpg",
+                "gif",
+                "jfif"
+            };
 
-                //upload image to local storage
-                var fileImagePath = await imageRepository.Upload(profileImage, fileName);
-
-                //update profile image path in database
-                if (await employeeRepository.UpdateProfileImage(employeeId, fileImagePath))
+            //image validation
+            if(profileImage != null && profileImage.Length > 0)
+            {
+                var extension = Path.GetExtension(profileImage.FileName);
+                if (validExtensions.Contains(extension))
                 {
-                    return Ok(fileImagePath);
+                    //checking if employee exists
+                    if (await employeeRepository.Exists(employeeId))
+                    {
+                        var fileName = Guid.NewGuid() + Path.GetExtension(profileImage.FileName);
+
+                        //upload image to local storage
+                        var fileImagePath = await imageRepository.Upload(profileImage, fileName);
+
+                        //update profile image path in database
+                        if (await employeeRepository.UpdateProfileImage(employeeId, fileImagePath))
+                        {
+                            return Ok(fileImagePath);
+                        }
+                        return StatusCode(StatusCodes.Status500InternalServerError, "Error uploading image");
+                    }
                 }
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error uploading image");
+                //send 400 response
+                return BadRequest("Invalid image format");
             }
+            
             return NotFound();
         }
     }

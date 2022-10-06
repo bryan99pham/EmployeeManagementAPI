@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 
 namespace EmployeeManagementAppAPI
 {
@@ -43,6 +44,9 @@ namespace EmployeeManagementAppAPI
             });
 
             services.AddControllers();
+
+            services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<Startup>());
+
             services.AddDbContext<EmployeeManagementContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("EmployeeManagementAppDb")));
 

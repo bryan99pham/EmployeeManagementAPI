@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "kncxlyUrheWKCDv5OZCMw++1eeUtTfszQ9T/hJ3Mi84w4kWkenWLvv+J6uBRnxCz76O9TuxI5Ielv6IV3K1cDQ==",
+  "dgSpecHash": "/thcvsDkK67q8NHE+OW5uFd2vZomRN8tTX8KRC9loAaAEMy94pYf9OFV4kvu6IXq+uy/Qo3zLT61vdDayUnNlg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Bryan\\Desktop\\Employee Management App\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI\\EmployeeManagementAppAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Bryan\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\Bryan\\.nuget\\packages\\fluentvalidation\\10.3.3\\fluentvalidation.10.3.3.nupkg.sha512",
+    "C:\\Users\\Bryan\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.3\\fluentvalidation.aspnetcore.10.3.3.nupkg.sha512",
+    "C:\\Users\\Bryan\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.3\\fluentvalidation.dependencyinjectionextensions.10.3.3.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Bryan\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
