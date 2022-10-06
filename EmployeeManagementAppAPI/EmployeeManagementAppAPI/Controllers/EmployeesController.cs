@@ -114,11 +114,11 @@ namespace EmployeeManagementAppAPI.Controllers
             //allowing these image formats
             var validExtensions = new List<string>
             {
-                "jpeg",
-                "png",
-                "jpg",
-                "gif",
-                "jfif"
+                ".jpeg",
+                ".png",
+                ".jpg",
+                ".gif",
+                ".jfif"
             };
 
             //image validation
