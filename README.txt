@@ -1,4 +1,18 @@
-NOTE: These steps should not be required once we deploy the app.
+Thank you for your interest in the Employee Management App!
+With this app, you will be able to:
+	- View all employees in the table
+	- Click on an individual employee's first or last name to view their profile.
+	- Edit their information by clicking on the pencil icon at the end of the row.
+	- Change an employee's profile picture.
+	- Search for employees by typing keywords into the search bar.
+	- Sort employees in the table by their fields.
+
+NOTE: The app has been deployed on https://employeemanagementappui.web.app/ meaning that you DO NOT
+have to follow the instructions to download/install any software.
+
+
+--------------------------------------------------------------------------------------------------------------------------------
+
 
 Software required to run project:
 *NOTE: the project may not be able to run without many extra steps. 
